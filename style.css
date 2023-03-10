@@ -24,7 +24,7 @@ body {
 .buttons {
     display: grid;
     grid-template-areas: 
-    "seven eight nine plus plus-minus"
+    "seven eight nine plus delete"
     "four five six minus equal"
     "one two three times equal"
     "decimal zero clear divide equal";

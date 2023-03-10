@@ -1,3 +1,10 @@
+const numberButton = document.querySelectorAll('.number')
+const operatorButton = document.querySelectorAll('.operator')
+const decimalButton = document.querySelector('.decimal')
+const clearButton = document.querySelector('.clear')
+const deleteButton = document.querySelector('.delete')
+const equalButton = document.querySelector('.equal')
+
 // Addition
 function addition(a, b) {
     return a + b
@@ -18,10 +25,6 @@ function division(a, b) {
     return a / b
 }
 
-
-let a = parseFloat(prompt("Pick a number: "))
-    let b = parseFloat(prompt("Pick another number: "))
-    let operator = prompt("Pick an operator: ")
 // Operation
 function operate(a, operator, b) {
     if (operator === '+') {
@@ -36,5 +39,3 @@ function operate(a, operator, b) {
         return "Error"
     }
 }
-
-console.log(operate(a, operator, b))

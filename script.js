@@ -10,26 +10,16 @@ const equalButton = document.querySelector('.equal')
 
 numberButton.forEach((btn) => {
     btn.addEventListener('click', () => {
-        displayNumber(btn.value)
+        console.log(btn.value)
     })
 })
 
-function displayNumber(number) {
-
-}
-
-// Decimal button----------------------------
-decimalButton.addEventListener('click', () => {
-    addDecimal()
+operatorButton.forEach((btn) => {
+    btn.addEventListener('click', () => {
+        console.log(btn.id)
+    })
 })
 
-function addDecimal() {
-    if (!firstNum.includes('.')) {
-        firstNum += '.'
-        currentDisplay.textContent = firstNum
-    }
-}
-//------------------------------------------------
 // Addition
 function addition(firstNum, secondNum) {
     return firstNum + secondNum

@@ -7,11 +7,10 @@ const previousDisplayNumber = document.querySelector('.previous-number')
 
 const numberButton = document.querySelectorAll('.number')
 const operatorButton = document.querySelectorAll('.operator')
-const decimalButton = document.querySelector('.decimal')
 const clearButton = document.querySelector('.clear')
-const deleteButton = document.querySelector('.delete')
 const equalButton = document.querySelector('.equal')
 
+// Buttons functionality -----------------
 numberButton.forEach((btn) => {
     btn.addEventListener('click', () => {
         console.log(btn.value)
@@ -29,6 +28,9 @@ equalButton.addEventListener('click', () => {
         operate()
     }
 })
+
+clearButton.addEventListener('click', clearBtn())
+//------------------------------------------
 
 // Addition
 function addition(currentNum, previousNum) {

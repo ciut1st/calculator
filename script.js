@@ -25,28 +25,29 @@ operatorButton.forEach((btn) => {
 })
 
 equalButton.addEventListener('click', () => {
-    if (currentNum != "" && previousNum != "") :
-    operate()
+    if (currentNum != "" && previousNum != "") {
+        operate()
+    }
 })
 
 // Addition
-function addition(firstNum, secondNum) {
-    return firstNum + secondNum
+function addition(currentNum, previousNum) {
+    return currentNum + previousNum
 }
 
 // Substraction
-function substraction(firstNum, secondNum) {
-    return firstNum - secondNum
+function substraction(currentNum, previousNum) {
+    return currentNum - previousNum
 }
 
 // Multiplication
-function multiplication(firstNum, secondNum) {
-    return firstNum * secondNum
+function multiplication(currentNum, previousNum) {
+    return currentNum * previousNum
 }
 
 // Division
-function division(firstNum, secondNum) {
-    return firstNum / secondNum
+function division(currentNum, previousNum) {
+    return currentNum / previousNum
 }
 
 // Clear button
@@ -59,15 +60,15 @@ function clearBtn() {
 }
 
 // Operation
-function operate(firstNum, operator, secondNum) {
+function operate(currentNum, operator, previousNum) {
     if (operator === '+') {
-        return addition(firstNum, secondNum)
+        return addition(currentNum, previousNum)
     } else if (operator === '-') {
-        return substraction(firstNum, secondNum)
+        return substraction(currentNum, previousNum)
     } else if (operator === '*') {
-        return multiplication(firstNum, secondNum)
+        return multiplication(currentNum, previousNum)
     } else if (operator === '/') {
-        return division(firstNum, secondNum)
+        return division(currentNum, previousNum)
     } else {
         return "Error"
     }

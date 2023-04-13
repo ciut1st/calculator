@@ -1,5 +1,9 @@
-const currentDisplay = document.querySelector('.current-number')
-const previousNumber = document.querySelector('.previous-number')
+let currentNum = ""
+let previousNum = ""
+let operator = ""
+
+const currentDisplayNumber = document.querySelector('.current-number')
+const previousDisplayNumber = document.querySelector('.previous-number')
 
 const numberButton = document.querySelectorAll('.number')
 const operatorButton = document.querySelectorAll('.operator')
@@ -20,6 +24,11 @@ operatorButton.forEach((btn) => {
     })
 })
 
+equalButton.addEventListener('click', () => {
+    if (currentNum != "" && previousNum != "") :
+    operate()
+})
+
 // Addition
 function addition(firstNum, secondNum) {
     return firstNum + secondNum
@@ -38,6 +47,15 @@ function multiplication(firstNum, secondNum) {
 // Division
 function division(firstNum, secondNum) {
     return firstNum / secondNum
+}
+
+// Clear button
+function clearBtn() {
+    currentNum = ""
+    previousNum = ""
+    operator = ""
+    currentDisplayNumber.textContent = "0"
+    previousDisplayNumber.textContent = ""
 }
 
 // Operation

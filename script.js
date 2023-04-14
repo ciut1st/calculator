@@ -11,25 +11,59 @@ const clearButton = document.querySelector('.clear')
 const equalButton = document.querySelector('.equal')
 
 // Buttons functionality -----------------
+    // Number-------------------
 numberButton.forEach((btn) => {
-    btn.addEventListener('click', () => {
-        console.log(btn.value)
+    btn.addEventListener('click', (e) => {
+        handleNumber(e.target.textContent)
     })
 })
 
+function handleNumber(number) {
+    if (previousNum !== "" && currentNum !== "" && operator === "") {
+        previousNum = ""
+        currentDisplayNumber.textContent = currentNum
+    }
+    if (currentNum.length <= 11) {
+        currentNum += number
+        currentDisplayNumber.textContent = currentNum
+    }
+}
+    //-------------------------
+    // Operator---------------------
 operatorButton.forEach((btn) => {
-    btn.addEventListener('click', () => {
-        console.log(btn.id)
+    btn.addEventListener('click', (e) => {
+        handleOperator(e.target.textContent)
     })
 })
 
+function handleOperator(op) {
+    if (previousNum === "") {
+        previousNum = currentNum
+        operatorCheck(op)
+    } else if (currentNum === "") {
+        operatorCheck(op)
+    } else {
+        operate()
+        operator = op
+        currentDisplayNumber.textContent = "0"
+        previousDisplayNumber.textContent = previousNum + " " + operator
+    }
+}
+
+function operatorCheck(text) {
+    operator = text;
+    previousDisplayNumber.textContent = previousNum + " " + operator;
+    currentDisplayNumber.textContent = "0";
+    currentNum = "";
+  }
+    //--------------------------
 equalButton.addEventListener('click', () => {
     if (currentNum != "" && previousNum != "") {
         operate()
     }
 })
 
-clearButton.addEventListener('click', clearBtn())
+clearButton.addEventListener('click', clearBtn)
 //------------------------------------------
 
 // Addition
@@ -62,16 +96,40 @@ function clearBtn() {
 }
 
 // Operation
-function operate(currentNum, operator, previousNum) {
-    if (operator === '+') {
-        return addition(currentNum, previousNum)
-    } else if (operator === '-') {
-        return substraction(currentNum, previousNum)
-    } else if (operator === '*') {
-        return multiplication(currentNum, previousNum)
-    } else if (operator === '/') {
-        return division(currentNum, previousNum)
-    } else {
-        return "Error"
-    }
+function operate() {
+    previousNum = Number(previousNum)
+    currentNum = Number(currentNum)
+
+    if (operator === "+") {
+        addition()
+      } else if (operator === "-") {
+        substraction()
+      } else if (operator === "x") {
+        multiplication()
+      } else if (operator === "/") {
+        if (currentNum <= 0) {
+          previousNum = "Error";
+          displayResults()
+          return
+        }
+        division()
+      }
+      previousNum = roundNumber(previousNum)
+      previousNum = previousNum.toString()
+      displayResults()
 }
+
+function roundNumber(num) {
+    return Math.round(num * 100000) / 100000
+  }
+  
+  function displayResults() {
+    if (previousNum.length <= 11) {
+      currentDisplayNumber.textContent = previousNum
+    } else {
+      currentDisplayNumber.textContent = previousNum.slice(0, 11) + "..."
+    }
+    previousDisplayNumber.textContent = ""
+    operator = ""
+    currentNum = ""
+  }

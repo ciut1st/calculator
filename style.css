@@ -1,8 +1,10 @@
 body {
-    padding: 0;
-    margin: 0;
-    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
     width: 100vh;
+    height: 100vh;
 }
 .header {
     display: flex;
@@ -11,14 +13,30 @@ body {
 }
 
 .calculator {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    background-color: aqua;
+    border: 5px solid red;
 }
 
 .display {
-    background-color: red;
+    background-color: white;
+    width: 400px;
+    height: 75px;
+    padding: 10px;
+    border: 5px solid red;
+}
+
+.previous-number {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    font-size: 20px;
+}
+
+.current-number {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    font-size: 30px;
 }
 
 .buttons {
@@ -28,4 +46,17 @@ body {
     "four five six minus"
     "one two three times"
     "clear zero equal divide";
+}
+
+button {
+    height: 75px;
+    width: 75px;
+    margin: 15px;
+    font-size: 25px;
+    border: 1px solid yellow;
+    border-radius: 10px;
+}
+
+button:hover {
+    background-color: green;
 }

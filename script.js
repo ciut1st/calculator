@@ -101,18 +101,18 @@ function operate() {
     currentNum = Number(currentNum)
 
     if (operator === "+") {
-        addition()
+        previousNum = addition(currentNum, previousNum)
       } else if (operator === "-") {
-        substraction()
-      } else if (operator === "x") {
-        multiplication()
+        previousNum = substraction(currentNum, previousNum)
+      } else if (operator === "*") {
+        previousNum = multiplication(currentNum, previousNum)
       } else if (operator === "/") {
         if (currentNum <= 0) {
           previousNum = "Error";
           displayResults()
           return
         }
-        division()
+        previousNum = division()
       }
       previousNum = roundNumber(previousNum)
       previousNum = previousNum.toString()

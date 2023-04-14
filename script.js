@@ -72,7 +72,7 @@ function addition(currentNum, previousNum) {
 }
 
 // Substraction
-function substraction(currentNum, previousNum) {
+function substraction(previousNum, currentNum) {
     return currentNum - previousNum
 }
 
